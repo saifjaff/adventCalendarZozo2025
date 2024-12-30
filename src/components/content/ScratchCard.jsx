@@ -10,7 +10,6 @@ const CardContainer = styled.div`
   gap: 2rem;
   justify-content: center;
 `;
-
 const Card = styled.div`
   position: relative;
   width: 250px;
