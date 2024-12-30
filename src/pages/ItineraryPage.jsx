@@ -5,7 +5,16 @@ import ContentLayout from '../components/layout/ContentLayout';
 const ItineraryContainer = styled.div`
   max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
+
+  h1 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.5rem;
+  }
 `;
 
 const FlightSection = styled.div`
@@ -17,12 +26,17 @@ const FlightSection = styled.div`
 `;
 
 const FlightCard = styled.div`
-  margin: 2rem 0;
-  padding: 2rem;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
   background: #f8f9fa;
   border-radius: 12px;
   border-left: 4px solid #2196F3;
   position: relative;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
 
   &::before {
     content: '✈️';
@@ -34,6 +48,11 @@ const FlightCard = styled.div`
     padding: 5px;
     border-radius: 50%;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+    @media (max-width: 480px) {
+      left: -15px;
+      font-size: 0.8rem;
+    }
   }
 
   ${props => props.$active && `
@@ -49,18 +68,25 @@ const FlightHeader = styled.div`
   margin-bottom: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #eee;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 
   h3 {
     color: #2196F3;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 3vw, 1.2rem);
   }
 
   .duration {
     background: #e3f2fd;
     padding: 0.5rem 1rem;
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
     color: #1976D2;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: flex-start;
   }
 `;
 
@@ -68,6 +94,11 @@ const TimeGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 `;
 
 const TimeBlock = styled.div`

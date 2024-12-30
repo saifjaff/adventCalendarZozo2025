@@ -19,9 +19,20 @@ const WelcomeSection = styled.section`
 
 const DayGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 1rem;
   margin: 2rem 0;
+  padding: 0 1rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
 `;
 
 const DayCard = styled(Link)`
@@ -72,11 +83,15 @@ const DayCardContent = styled.div`
 
 const ReturnCountdown = styled.div`
   text-align: center;
-  margin: 2rem 0;
-  padding: 2rem;
+  margin: 2rem 1rem;
+  padding: 1.5rem;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 
   h2 {
     color: #2196F3;
@@ -90,6 +105,10 @@ const TimeDisplay = styled.div`
   gap: 1rem;
   max-width: 400px;
   margin: 0 auto;
+
+  @media (max-width: 480px) {
+    gap: 0.5rem;
+  }
 `;
 
 const TimeUnit = styled.div`
@@ -99,13 +118,17 @@ const TimeUnit = styled.div`
   border-radius: 8px;
   
   .number {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
     font-weight: bold;
   }
   
   .label {
-    font-size: 0.8rem;
+    font-size: clamp(0.7rem, 2vw, 0.8rem);
     opacity: 0.8;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.5rem;
   }
 `;
 
